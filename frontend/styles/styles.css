@@ -1,0 +1,434 @@
+/* Основные стили */
+.container {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  max-width: 100%;
+  background: #f4f6f8;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: #343a40;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Стиль контейнера для графа */
+#cy {
+  border: 1px solid #ddd;
+  background: #ffffff;
+  border-radius: 8px;
+  height: 600px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  width: calc(100vw - 40px); /* Растягиваем на всю ширину экрана, учитывая отступы */
+  margin-left: -20px; /* Сдвигаем визуализацию влево, чтобы компенсировать padding контейнера */
+}
+
+/* Карточки пайплайнов */
+.pipeline {
+  background: linear-gradient(145deg, #ffffff, #e6e6e6);
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  transition: transform 0.2s ease;
+}
+
+.pipeline:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.pipeline h2 {
+  font-size: 1.5rem;
+  color: #495057;
+  margin-bottom: 10px;
+}
+
+/* Фильтры статусов */
+.status-filter {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Стиль для select */
+.status-filter select,
+select {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+  background: #ffffff;
+  color: #495057;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  appearance: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
+  width: 100%;
+  max-width: 300px;
+}
+
+select:focus {
+  border-color: #007bff;
+  box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
+}
+
+select option {
+  padding: 10px;
+}
+
+/* стиль для input[type="text"] */
+input[type="text"] {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  background: #f9f9f9;
+  box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Стили для кнопки загрузки */
+button {
+  margin-left: 10px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #0056b3, #003f7f);
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button:active {
+  transform: translateY(1px);
+  background: #003f7f;
+}
+
+/* Стили для статусов */
+.status-pending {
+  color: #ffc107;
+  font-weight: bold;
+}
+
+.status-running {
+  color: #17a2b8;
+  font-weight: bold;
+}
+
+.status-completed {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.status-failed {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+/* Стили задач */
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background: #ffffff;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.task-item a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.task-item a:hover {
+  color: #0056b3;
+}
+
+/* Специальные стили для статусов задач */
+.status-label {
+  font-size: 0.9rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.status-pending .status-label {
+  background-color: #ffc107;
+}
+
+.status-running .status-label {
+  background-color: #17a2b8;
+}
+
+.status-completed .status-label {
+  background-color: #28a745;
+}
+
+.status-failed .status-label {
+  background-color: #dc3545;
+}
+
+/* Стиль ссылок */
+a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* Анимация при наведении на карточки и кнопки */
+button, .pipeline {
+  transition: box-shadow 0.3s ease;
+}
+
+button:hover, .pipeline:hover {
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Для уведомлений */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #333;
+  color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+  z-index: 1000;
+}
+
+
+/* Основной контейнер для страницы */
+.task-details-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9fb;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+/* Заголовок */
+.task-details-container h1 {
+  font-size: 2rem;
+  color: #343a40;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Стиль каждого поля */
+.task-details-container p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+/* Заголовок для каждого поля */
+.task-details-container p strong {
+  color: #495057;
+}
+
+/* Цветовая схема для статуса задачи */
+.task-status {
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline-block;
+  font-size: 0.95rem;
+}
+
+.status-pending .task-status {
+  background-color: #ffecb5;
+  color: #856404;
+}
+
+.status-running .task-status {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}
+
+.status-completed .task-status {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-failed .task-status {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* Кнопка для возврата к списку задач */
+.back-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #0056b3;
+}
+
+/* Стиль для ошибок и предупреждений */
+.error-count,
+.warning-count {
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.error-count {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.warning-count {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+
+
+/* Стили для страницы AnalyticsPage */
+.analytics-page {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  max-width: 1200px;
+  background: #f4f6f8;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.analytics-page__title {
+  color: #343a40;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.analytics-page__filter {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.analytics-page__search,
+.analytics-page__select {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+  background: #ffffff;
+  color: #495057;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+.analytics-page__select:focus,
+.analytics-page__search:focus {
+  border-color: #007bff;
+  box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
+}
+
+.analytics-page__buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.analytics-page__button {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.analytics-page__button:hover {
+  background: linear-gradient(135deg, #0056b3, #003f7f);
+  transform: translateY(-2px);
+}
+
+.analytics-page__button:active {
+  background: #003f7f;
+}
+
+.analytics-page__stats {
+  margin-bottom: 20px;
+}
+
+.analytics-page__chart {
+  height: 400px;
+  width: 100%;
+}
+
+
+/* Стили для инпута файла */
+input[type="file"] {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #495057;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
+  cursor: pointer;
+}
+
+input[type="file"]:hover {
+  border-color: #007bff;
+  box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.2);
+}
+
+input[type="file"]:focus {
+  border-color: #0056b3;
+  box-shadow: 0px 0px 8px rgba(0, 86, 179, 0.4);
+}

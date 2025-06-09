@@ -1,0 +1,11 @@
+{
+  "name": "mock-backend",
+  "version": "1.0.0",
+  "main": "mockGenerator.js",
+  "scripts": {
+    "start": "node mockGenerator.js"
+  },
+  "dependencies": {
+    "pg": "^8.10.0"
+  }
+}

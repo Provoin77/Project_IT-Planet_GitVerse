@@ -1,0 +1,24 @@
+pipeline:
+  name: "Мой пайплайн"
+  description: "Описание пайплайна"
+  tasks:
+    - name: "Задача 1"
+      description: "Описание задачи 1"
+      status: "Pending"
+      progress_percentage: 0
+      assignee: "developer_user"
+      tags: ["Optional", "UI"]
+    - name: "Задача 2"
+      description: "Описание задачи 2"
+      status: "Running"
+      progress_percentage: 60
+      assignee: "tester_user"
+      tags: ["Critical", "Backend"]
+      depends_on: [ "Задача 1" ]
+    - name: "Задача 3"
+      description: "Описание задачи 3"
+      status: "Failed"
+      progress_percentage: 0
+      assignee: "viewer_user"
+      tags: ["Optional", "UI"]
+      depends_on: [ "Задача 2" ]

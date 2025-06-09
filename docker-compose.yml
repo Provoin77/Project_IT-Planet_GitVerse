@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  # База данных PostgreSQL
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: gitverse_user
+      POSTGRES_PASSWORD: gitverse_password
+      POSTGRES_DB: gitverse_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init_db.sql:/docker-entrypoint-initdb.d/init_db.sql  # Подключаем файл инициализации
+    ports:
+      - "5433:5432"  # Пробрасываем порт для доступа к базе данных
+    restart: always
+
+  # Бэкенд-сервис на Go
+  backend:
+    build: ./backend
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USER: gitverse_user
+      DB_PASSWORD: gitverse_password
+      DB_NAME: gitverse_db
+    depends_on:
+      - postgres
+    restart: on-failure
+    ports:
+      - "8080:8080"  # Пробрасываем порт для доступа к бэкенду
+
+  # Фронтенд-сервис на Next.js
+  frontend:
+    build: ./frontend
+    environment:
+      API_URL: http://backend:8080  # URL для доступа к API бэкенда
+    ports:
+      - "3000:3000"  # Пробрасываем порт для доступа к фронтенду
+    depends_on:
+      - backend
+    restart: always
+
+volumes:
+  postgres_data:  # Создаем том для хранения данных PostgreSQL

@@ -1,0 +1,13 @@
+# Исключение папок node_modules
+node_modules/
+frontend/node_modules/
+
+# Исключение временных файлов Next.js
+frontend/.next/
+
+# Исключение временных файлов Microsoft Office и других временных файлов
+~$*
+*.tmp
+
+# Исключение вложенного репозитория или ненужной папки
+IT-Planet_Pro_GitVerse/

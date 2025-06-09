@@ -1,0 +1,37 @@
+# Общие настройки для нормализации перевода строк
+* text=auto
+
+# Настройки для Go файлов
+*.mod text eol=lf
+*.sum text eol=lf
+
+# Настройки для JSON-файлов
+*.json text eol=lf
+
+# Настройки для JavaScript и Node.js
+*.js text eol=lf
+*.env text eol=lf
+*.env.local text eol=lf
+
+# Настройки для Shell-скриптов
+*.sh text eol=lf
+
+# Настройки для Docker файлов
+Dockerfile text eol=lf
+*.dockerfile text eol=lf
+
+# Настройки для YAML и Compose файлов
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# Настройки для SQL файлов
+*.sql text eol=lf
+
+# Настройки для CSS
+*.css text eol=lf
+
+# Настройки для Markdown
+*.md text eol=lf
+
+# Прочие текстовые файлы
+*.txt text eol=lf
